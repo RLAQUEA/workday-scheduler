@@ -2,13 +2,10 @@
 //make sure everything is inside ready function to load html first
 $(document).ready(function () {
 function getCurrentHour() {
-thisHour = moment().format("hh");
-
-// if(test < hour) {
-// set class to past 
-
+// this displays the current date and time 
+$("#current-time").text(moment().format("MMM Do, YYYY"));
 }
-
+getCurrentHour();
 var container = $("textarea");
 var saveBtn = $(".saveBtn");
 saveBtn.on("click", function () {
@@ -22,66 +19,40 @@ var divTimeKey = $(this).parent().attr("id")
 //in browser in local storage, set key/value pair (item) w/ first arg is key, second is value associated w/ that key
 window.localStorage.setItem(divTimeKey, textAreaValue)
 })
+//into id 9 then description, place value of local storage that has a key of 9
+$("#9 .description").val(window.localStorage.getItem("9"))
+$("#10 .description").val(window.localStorage.getItem("10"))
+$("#11 .description").val(window.localStorage.getItem("11"))
+$("#12 .description").val(window.localStorage.getItem("12"))
+$("#13 .description").val(window.localStorage.getItem("13"))
+$("#14 .description").val(window.localStorage.getItem("14"))
+$("#15 .description").val(window.localStorage.getItem("15"))
+$("#16 .description").val(window.localStorage.getItem("16"))
+$("#17 .description").val(window.localStorage.getItem("17"))
 
-// this displays the current date and time 
-setInterval(function() {
-        var now = moment().format("MMM Do, YYYY hh:mm:ss");
-        hour = moment().format("hh");
-        var timeNOW = $("#current-time");
-        timeNOW.text(now);
-        getCurrentHour();
+//changes color of hour time block textarea
+function updateCSS() {
+//grabs current hour 
+var hour = moment().hours();
+
+//targets each hour block
+$(".time-block").each(function(){
+//gets value of id and parseInt changes it from string to int
+var divTimeBlock = parseInt($(this).attr("id"));
+if(divTimeBlock < hour) {
+ $(this).addClass("past");       
 }
-, 1000);
-
-// this one will tell what hour it is 
-
-// else if(test > hour) {
-// //set class to future 
-
-
-// }
-// else {
-
-
-// //set class to present
-// }
-// };
-
-// //need key and value to access local storage 
-
-
+//this checks to see if the hour selected matches current hour 
+else if(divTimeBlock === hour) {
+$(this).removeClass("past")        
+$(this).addClass("present");
+}
+//this checks to see if time selected is greater than the current time 
+else {
+$(this).removeClass("present");
+$(this).addClass("future");
+}
+})
+}
+updateCSS();
 });
-
-
-
-
-
-
-
-
-
-// currentHour.setAttribute(".past")
-// currentHour.setAttribute(".present")
-// currentHour.setAttribute("class", ".future")
-
-// if (hour > moment("9").format("hh")) {
-// }
-// let workHours =  [9, 10, 11, 12, 13, 14, 15, 16]
-// if(currentHour === now) {
-// document.getElementById("#current-time").style["class", ".present"];
-// console.log(workHours[0]);      
-
-
-// document.getElementById("#hour-nine")
-// document.getElementById("#hour-ten")
-// document.getElementById("#hour-eleven")
-// document.getElementById("#hour-twelve")
-// document.getElementById("#hour-thirteen")
-// document.getElementById("#hour-fourteen")
-// document.getElementById("#hour-fifteen")
-// document.getElementById("#hour-sixteen")
-
-
-
-
-
