@@ -7,8 +7,6 @@ When you scroll, there is a box with time blocks for each hour of the day, start
 
 The time is color coded, so if the hour is in the past, its background color is gray, the present hour time block is shown in red, and the future blocks are shown in green.    
 
-
-<img width="1202" alt="work-day-screenshot" src="https://user-images.githubusercontent.com/30808137/124187772-4bfbc580-da8c-11eb-953d-517304c852d9.png">
-
+<img width="1421" alt="work-day-screenshot" src="https://user-images.githubusercontent.com/30808137/124201839-0d273900-daa7-11eb-85c5-6f787833d5f7.png">
 
 
